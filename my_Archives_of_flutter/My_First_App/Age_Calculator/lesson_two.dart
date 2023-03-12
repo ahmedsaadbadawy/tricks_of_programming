@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/age.dart';
-
+import 'package:flutter_application_3/test.dart';
+import 'age.dart';
 class LessonTwo extends StatefulWidget {
   const LessonTwo({super.key});
 
@@ -9,6 +9,10 @@ class LessonTwo extends StatefulWidget {
 }
 
 class _LessonTwoState extends State<LessonTwo> {
+  TextStyle s = TextStyle(
+    color: Colors.green,
+    fontSize: 25,
+  );
   bool passwordvisible = true;
   var mycontroller = TextEditingController();
   int str = 0;
@@ -94,6 +98,12 @@ class _LessonTwoState extends State<LessonTwo> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+             //Text("Hey",style: s,),
+             MyText("Hey",s),
+          ),
           const SizedBox(height: 20),
         ]),
       ),
@@ -108,3 +118,4 @@ class _LessonTwoState extends State<LessonTwo> {
     );
   }
 }
+
