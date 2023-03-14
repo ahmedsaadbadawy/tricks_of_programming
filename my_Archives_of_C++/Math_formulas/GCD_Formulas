@@ -1,0 +1,30 @@
+###GCD: Greatest Common Divisor
+// gcd(45, 10) = 5	then 45%5 = 10%5 = 0		and can't find n > 5 such that  45%n = 10%n = 0
+//
+// only? any more facts? NO
+// if a%n = 0 & b%n = =0	THEN (a+b)%n = 0	and (a-b)%n = 0		as (a+b)%n = (a%n+b%n)%n = (0+0)%n = 0
+ THEN
+ //gcd(45, 10) = gcd(35, 10) = gcd(25, 10) = gcd(15, 10) = gcd(5, 10) = 5
+ //gcd(10, 5) = gcd(5, 5) = gcd(5, 0) = 5
+
+ Then we found an algorirthm!
+		function gcd(a, b)
+			if a = 0
+			   return b
+			while b ? 0
+				if a > b
+				   a := a - b
+				else				   b := b - a
+			return a
+
+// Wait: We just keep reaming the small from the big, the big number turn to be the smaller, and then do reverse
+// How to do this switch fast? gcd(45, 10) = gcd(45%10, 10)	-> simply remove aint the smaller cycles in 1 step
+// Then code easily became
+
+
+int gcd(int a, int b) {
+	if(b==0)
+		return a;
+	return gcd(b, a%b);
+}
+
