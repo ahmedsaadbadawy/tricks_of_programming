@@ -1,0 +1,22 @@
+ 
+int main() {
+ 
+ 
+    long long x,y,z,a,b,c, n1=0,n2=0,n3=0,n4=0,n5=0;
+    cin >>x;
+ 
+    for (int i = 0; i <x; i++)
+    {
+     n1=1;
+    for (int j = 0; j <=i; j++)
+    {
+       cout<<n1<<" ";
+       n1=n1*(i-j)/(j+1);
+    }
+    cout<<endl;
+    }
+ 
+ 
+ 
+    return 0;
+}
