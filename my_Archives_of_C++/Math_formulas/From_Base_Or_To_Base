@@ -1,20 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+long long tolong(char* l)
+{
+    if(l>='0'&&l<='9')return c-'0';
+    else return l-'A'+10;
+}
+char tochar(long long* h)
+{
+    if(h>=0&&h<=9)return h+'0';
+    else return h+'A'-10;
+}
+long long from_base_to_decimal(char* c,long long base)
+{
+    long long Size=strlen(c);
+    long long power=1;
+    long long result=0;
+    for (int i = Size-1; i>=0; i--)
+    {
+     result+=tolong(c[i])*power;
+     power*=base;
+    }
+    return result;
+}
+/**< to return Array */
+char* from_decimal_to_base(char arr[],long long base,long long num)
+{
+   int i=0;
+   while(num>0)
+   {
+      /**< after do this line increase. */
+       arr[i++]=num%base;
+       num/=base;
+   }
+   /**< '\0' it's like endl to cut the string here */
+   res[i]='\0';
+   reverse(arr,arr+i);
+   return arr;
+}
 
 int main() {
- 
- 
-    long long x,y,z,a,b,c, n1=0,n2=0,n3=0,n4=0,n5=0;
-    string s;
-    cin >>s>>x;
- 
-    for (int i = 0; i <s.size(); i++)
-    {
-     n1 *= 10;
-     n1 += s[i]-'0';
-     n1 %= x;
+
+
+    long long x,t,b;
+    
+    cin >>t;
+
+    if(t==1){
+    /**< [35] the limit he gave to me */
+        char c[35]={""};
+    cin>>c>>b;
+    cout<<from_base_to_decimal(c,b)<<endl;
     }
-    if(n1==0){cout<<"YES"<<endl;}
-    else cout<<"NO"<<endl;
- 
- 
+    else{
+        cin>>x>>b;
+    /**< [100] the limit he gave to me */
+        char arr[100];
+        cout<<from_decimal_to_base(arr,b,x)<<endl;
+    }
+
+
     return 0;
 }
+
