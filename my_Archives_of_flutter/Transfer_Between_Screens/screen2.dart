@@ -14,6 +14,7 @@ class Screen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // if you want the tabBar to run remove the map.
     late Map<String, Object>  routeArg =
         ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
 
