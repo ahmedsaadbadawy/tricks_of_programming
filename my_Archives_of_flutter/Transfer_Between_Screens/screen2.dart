@@ -14,7 +14,7 @@ class Screen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final  routeArg =
+    late Map<String, Object>  routeArg =
         ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
 
     return Scaffold(
