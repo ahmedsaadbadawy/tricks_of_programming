@@ -1,4 +1,3 @@
-  
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/screen1.dart';
 import 'package:flutter_application_5/screen2.dart';
@@ -58,9 +57,20 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [
-            Screen1(),
-            Screen2(),
+          children: <Widget>[
+            Scaffold(
+              appBar: AppBar(
+                title: Text("part 1"),
+              ),
+              body: Center(
+                child: Text("Text 1"),
+              ),
+            ),
+            Scaffold(
+              body: Center(
+                child: Text("Text 1"),
+              ),
+            ),
           ],
         ),
         drawer: Drawer(
