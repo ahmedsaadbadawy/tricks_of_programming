@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void x(BuildContext ctx) {
     // the (showBottomSheet) is something show up when you press on button.
-    // it must be in stateless widget.
+    
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
