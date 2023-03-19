@@ -4,7 +4,7 @@ import 'screen2.dart';
 class Screen1 extends StatelessWidget {
   static const routName = '/my_screen1_category';
 
-  void SelectScreen(BuildContext ctx, int n) {
+  void SelectScreen(BuildContext ctx,int n) {
     Navigator.of(ctx).pushReplacementNamed(
       '/x2',
       arguments: {
@@ -16,8 +16,7 @@ class Screen1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if you want the tabBar to run remove the map.
-    late Map<String, Object> routeArg =
+    final routeArg =
         ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
 
     return Scaffold(
@@ -40,7 +39,7 @@ class Screen1 extends StatelessWidget {
                 "Go To Screen 2",
                 style: TextStyle(fontSize: 30, color: Colors.teal),
               ),
-              onTap: () => SelectScreen(context, 2),
+              onTap: () => SelectScreen(context,2),
             ),
           ],
         ),
