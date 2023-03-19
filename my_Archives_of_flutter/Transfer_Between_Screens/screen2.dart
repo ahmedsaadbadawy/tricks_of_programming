@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screen1.dart';
 
 class Screen2 extends StatelessWidget {
-  void SelectScreen(BuildContext ctx,int n) {
+  void SelectScreen(BuildContext ctx, int n) {
     Navigator.of(ctx).pushReplacementNamed(
       Screen1.routName,
       arguments: {
@@ -14,8 +14,7 @@ class Screen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if you want the tabBar to run remove the map.
-    late Map<String, Object>  routeArg =
+    final routeArg =
         ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
 
     return Scaffold(
@@ -25,7 +24,7 @@ class Screen2 extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-           Text(
+            Text(
               "${routeArg['id']}",
               style: const TextStyle(fontSize: 30, color: Colors.teal),
             ),
@@ -38,7 +37,7 @@ class Screen2 extends StatelessWidget {
                 "Go To Screen 1",
                 style: TextStyle(fontSize: 30, color: Colors.teal),
               ),
-              onTap: () => SelectScreen(context,1),
+              onTap: () => SelectScreen(context, 1),
             ),
           ],
         ),
