@@ -1,0 +1,102 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_5/screen1.dart';
+import 'package:flutter_application_5/screen2.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Map<String, Widget>> _pages = [
+    // 'Page' = first key && 'title' = second key.
+    {
+      'Page': const Scaffold(
+        body: Center(
+          child: Text("Text 1"),
+        ),
+      ),
+      'title': Text('Page 1')
+    },
+    {
+      'Page': const Scaffold(
+        body: Center(
+          child: Text("Text 2"),
+        ),
+      ),
+      'title': Text('Page 2'),
+    },
+  ];
+
+  int _selectedPageIndex = 0;
+  void _x1(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: _pages[_selectedPageIndex]['title'],
+        ),
+        body: _pages[_selectedPageIndex]['Page'],
+        bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.green,
+            unselectedItemColor: Colors.black45,
+            selectedFontSize: 15,
+            unselectedFontSize: 15,
+            currentIndex: _selectedPageIndex,
+            //for animation.
+            type: BottomNavigationBarType.shifting,
+            onTap: _x1,
+            items: const [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.category), label: "Part 1"),
+              BottomNavigationBarItem(icon: Icon(Icons.star), label: "Part 2"),
+            ]),
+        drawer: Drawer(
+          child: Column(
+            children:const [
+              // (InkWell) text you can click on it.
+              //must contain child after it.
+              // (ListTile) = (InkWell) don't contain child after it.
+              ListTile(
+                title:  Text(
+                  "Go To Screen 1",
+                  style: TextStyle(fontSize: 30, color: Colors.teal),
+                ),
+                subtitle: Text("Go To Screen 1"),
+              ),
+              ListTile(
+                title:  Text(
+                  "Go To Screen 2",
+                  style: TextStyle(fontSize: 30, color: Colors.teal),
+                ),
+                subtitle: Text("Go To Screen 2"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
