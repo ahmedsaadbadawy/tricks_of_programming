@@ -1,0 +1,91 @@
+<F2>import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_application_5/screen1.dart';
+import 'package:flutter_application_5/screen2.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  double _value = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("The Slider"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Transform.rotate(
+            // Cause angle Accept Radian Only.
+            angle: _value * (pi / 180),
+            child: Container(
+              color: Colors.blueAccent,
+              width: _value / 2,
+              height: _value / 2,
+            ),
+          ),
+          Text(
+            "value: ${(_value).round()}",
+            style: const TextStyle(fontSize: 30),
+          ),
+          Slider(
+            value: _value,
+            onChanged: (double val) => setState(() {
+              _value = val;
+            }),
+            min: 0,
+            max: 700,
+            label: "value",
+            divisions: 700,
+            activeColor: Colors.blueAccent,
+            inactiveColor: Colors.teal,
+          )
+        ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: const [
+            // (InkWell) text you can click on it.
+            //must contain child after it.
+            // (ListTile) = (InkWell) don't contain child after it.
+            ListTile(
+              title: Text(
+                "Go To Screen 1",
+                style: TextStyle(fontSize: 30, color: Colors.teal),
+              ),
+              subtitle: Text("Go To Screen 1"),
+            ),
+            ListTile(
+              title: Text(
+                "Go To Screen 2",
+                style: TextStyle(fontSize: 30, color: Colors.teal),
+              ),
+              subtitle: Text("Go To Screen 2"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+<F2>
